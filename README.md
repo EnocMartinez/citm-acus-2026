@@ -31,7 +31,7 @@ Across the course you will work with:
 
 
 
-Open a lab folder, read its `L0X.md` file, and work through the tasks in order. Exercises are designed to be completed in Python 3 — no prior programming experience is assumed beyond the very basics.
+Open a lab folder and work through the tasks in order. Exercises are designed to be completed in Python 3 — no prior programming experience is assumed beyond the very basics.
 
 ## License
 
