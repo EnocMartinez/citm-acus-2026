@@ -121,9 +121,6 @@ Work in pairs. One laptop, one device.
 3. Put them in the `data/` folder next to your script. **Do not rename them** — the filename is
    your timestamp.
 
-> 📝 How many files did you get, and what are they called? Looking only at the filenames,
-> what time did the first recording start, and what time did the last one start?
-
 ---
 
 # Part B — Opening your recording
