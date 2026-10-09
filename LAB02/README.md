@@ -374,10 +374,11 @@ you only need `S`. **Use the values your instructor gives you for the units you 
 calibration is specific to the device and the gain setting:
 
 ```python
-# --- calibration constants for our HydroMoths (ask your instructor to confirm) ---
-N_BITS = 16
-FSR = 2.0                      # full-scale range of the ADC, in volts
-S_DB = -172.0                  # end-to-end sensitivity, dB re 1 V/µPa, at medium gain
+# --- calibration constants for our HydroMoths  ---
+N_BITS = 16  # bits
+FSR = 2.5  # Volts              
+Sensitivity = -165.0  # dB re 1 uPa 
+Gain = 10 # dB
 # ---------------------------------------------------------------------------------
 
 lsb = FSR / 2 ** ____                      # TODO: how many levels does an N-bit ADC have?
@@ -386,7 +387,7 @@ S = 10 ** (____ / 20)                      # TODO: dB back to linear — amplitu
 print("one count is", lsb * 1e6, "µV")
 print("sensitivity  is", S, "V/µPa")
 
-pressure = data * lsb / S                  # µPa, for every sample at once
+pressure = data # Convert ADC counts to uPa, type your formula here
 ```
 
 ```python
