@@ -18,11 +18,11 @@
 
 In Lab 1 you worked with numbers somebody else had put in a text file. Today you are going to
 **make your own data**: you will configure a real hydrophone, record real underwater sound, pull
-the files off it, and open them in Python.
+the file off it, and open it in Python.
 
 The session has two halves:
 
-* **Part A — the device.** Configure a HydroMoth, record, and recover the files. Hands on hardware.
+* **Part A — the device.** Configure a HydroMoth, record, and recover the file. Hands on hardware.
 * **Part B — the data.** Open your own recording in Python, find out what is inside it, and plot
   it against real clock time.
 
@@ -70,8 +70,9 @@ What you need to know to use one:
 * It has **no clock battery you can rely on** and **no screen**. It knows the time only because
   the configuration app told it, and it reports everything in **UTC**.
 * It records on a **schedule** you set in advance. Once it is sealed, it does exactly what it was
-  told and nothing else.
-* Files are named after the time the recording started: `YYYYMMDD_HHMMSS.WAV`.
+  told and nothing else. Today the devices will be set to **record continuously**, so each device
+  produces **one single WAV file** covering the whole deployment.
+* The file is named after the time the recording started: `YYYYMMDD_HHMMSS.WAV`.
   So `20261015_103000.WAV` started at **10:30:00 UTC on 15 October 2026**.
 
 That last point matters more than it looks. The filename is the *only* thing tying your data to
@@ -87,16 +88,14 @@ Work in pairs. One laptop, one device.
    The app should show the device ID and the battery voltage.
 3. Check the **time**. The app sets the device clock from your computer, in UTC. Press the button
    that sets the time and confirm it took.
-4. Set the **sampling rate**. Use the value your instructor gives you for today
-   (we will use **48 kHz** unless told otherwise).
-5. Set the **gain**. Start at **medium**. Too much gain and loud sounds will clip; too little and
-   quiet sounds disappear into the noise.
-6. Set the **recording schedule**: record continuously, or in a duty cycle such as 30 s of
-   recording every minute, as instructed.
-7. Write the configuration to the device.
+4. Set the **sampling rate** and the **gain**. Your instructor will tell you which values to use
+   for today's session.
+5. Set the **recording schedule to continuous**. Every device records non-stop for the whole
+   deployment, so there is no duty cycle to configure.
+6. Write the configuration to the device.
 
-> 📝 Write down, for your device: its ID, the sampling rate, the gain setting, the
-> schedule, and the battery voltage the app reported. You will need these in your report.
+> 📝 Write down, for your device: its ID, the sampling rate, the gain setting, and the
+> battery voltage the app reported. You will need these in your report.
 
 > 📝 The app sets the clock in **UTC**, but your laptop shows local time. In October,
 > Barcelona is UTC+2. If you start a recording at 11:30 on your watch, what time will appear in
@@ -104,7 +103,7 @@ Work in pairs. One laptop, one device.
 
 ## Task A2 — Seal it and record
 
-1. Set the switch to **CUSTOM** (or **DEFAULT**, as instructed) before closing the housing. A
+1. Set the switch to the position your instructor tells you, before closing the housing. A
    device left on USB/OFF records nothing — this is the single most common mistake.
 2. Close the housing carefully. Check the **O-ring**: it must be clean, seated in its groove, and
    lightly greased. A hair or a grain of sand on the O-ring floods the device.
@@ -117,8 +116,8 @@ Work in pairs. One laptop, one device.
 
 1. Recover the device, dry the **outside** thoroughly before opening it. Water on the lid runs
    straight into the electronics otherwise.
-2. Open the housing, take out the microSD card, and copy the WAV files to your laptop.
-3. Put them in the `data/` folder next to your script. **Do not rename them** — the filename is
+2. Open the housing, take out the microSD card, and copy the WAV file to your laptop.
+3. Put it in the `data/` folder next to your script. **Do not rename it** — the filename is
    your timestamp.
 
 ---
@@ -204,22 +203,12 @@ from scipy.io import wavfile
 
 ## Task 1 — Find your file
 
-**Goal:** list what you recovered from the card, and pick one file to work with.
+Locate the WAV file in your disk and create a variable with your file name
 
 ```python
-folder = "data"
-
-files = sorted(os.listdir(folder))     # every name in the folder, alphabetically
-for name in files:
-    print(name)
-
-filename = "____"                      # TODO: the name of ONE of your WAV files
-path = os.path.join(folder, filename)
+path = "MY_FILE.wav"
+print("File name:", path, "size", os.path.getsize(path), "bytes")
 ```
-
-> 📝 **1.** Because the names start with the date in `YYYYMMDD` order, sorting them alphabetically
-> also sorts them in time. Would that still work if the files were named `15102026_103000.WAV`
-> (day first)? Explain.
 
 ---
 
