@@ -36,7 +36,7 @@ one to clean a real, noisy recording.
 ### What to hand in
 
 * A report in PDF with snapshots of your code for every task.
-* The answers to 📝 **Q1 – Q4**.
+* The answers to 📝 **Q1 – Q5**.
 * An `AI usage` section describing which tools you used and why.
 * Your script, in a single file named `LAB04.py`.
 * The cleaned `.wav` file you produce in Task 4.
